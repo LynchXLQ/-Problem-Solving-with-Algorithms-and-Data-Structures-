@@ -34,4 +34,4 @@ class Fraction:
 f1 = Fraction(1, 4)
 f2 = Fraction(1, 2)
 f3 = f1 + f2
-print(f3.__str__())
+f3.show()
