@@ -35,4 +35,28 @@ def parCheck(symbolString):
         index += 1
     return balance and s.isEmpty()
 
-print(parCheck(''))
+def parCheckComplex(symbolString):
+    s = Stack()
+    balance = True
+    index = 0
+    while index < len(symbolString) and balance:
+        symbol = symbolString[index]
+        if symbol in '([{':
+            s.push(symbol)
+        else:
+            if s.isEmpty():
+                return False
+            else:
+                top = s.pop()
+                if not match(top, symbol):
+                    return False
+        index += 1
+    return balance and s.isEmpty()
+
+
+def match(open, close):
+    opens = '([{'
+    closes = ')]}'
+    return opens.index(open) == closes.index(close)
+
+print(parCheckComplex('{]}'))
